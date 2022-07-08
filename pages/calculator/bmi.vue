@@ -13,12 +13,15 @@
         </v-card>
         <v-row>
             <V-col>
-                <input><v-text-field v-model="$store.state.age" label="Age" hide-details="auto" class="age"></v-text-field>
-                <v-radio-group v-model="gender" row>gender
-                    <v-radio label="male" value="ra"></v-radio>
-                    <v-radio label="female" value="radio-2"></v-radio>
+                <input>
+                <v-text-field v-model.number="theage" label="Age" hide-details="auto" class="age"></v-text-field>
+                <v-radio-group v-model.number="gender" row>gender
+                    <v-radio label="male" value="radio1"></v-radio>
+                    <v-radio label="female" value="radio2"></v-radio>
                 </v-radio-group>
-                <v-text-field label="height"></v-text-field>
+                <v-text-field v-model.number="theheight" label="height"></v-text-field>
+                <v-text-field v-model.number="theweight" label="weight"></v-text-field>
+                <h1>{{($store.state.weight / Math.pow($store.state.height/100, 2)).toFixed(1)}}</h1>
             </V-col>
         </v-row>
     </v-app>
@@ -26,12 +29,40 @@
 
 <script>
 export default {
-    data(){
-        return{
-            gender:"",
+    data() {
+        return {
+            gender: "",
         }
-    }
+    },
+    computed: {
+        theage: {
+            get() {
+                return this.$store.state.age
+            },
+            set(value) {
+                this.$store.commit("unkounko", value)
+            }
+        },
+        theheight: {
+            get() {
+                return this.$store.state.height
+            },
+            set(value) {
+                this.$store.commit("unkounko2", value)
+            }
+        },
+        theweight: {
+            get() {
+                return this.$store.state.weight
+            },
+            set(value) {
+                this.$store.commit("unkounko3", value)
+            }
+        },
+
+    },
 }
+
 </script>
 
 <style>
