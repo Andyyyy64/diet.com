@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-if="nav" clipped>
+    <v-navigation-drawer v-if="nav" app clipped>
       <v-container>
         <v-list-item>
           <v-list-item-content>
@@ -27,7 +27,9 @@
     </v-navigation-drawer>
     <v-app-bar color="lightblack" app clipped-left>
       <v-app-bar-nav-icon @click="nav = !nav"></v-app-bar-nav-icon>
-      <v-toolbar-title><Nuxt-Link to="/" class="navhome">diet.com</Nuxt-Link></v-toolbar-title>
+      <v-toolbar-title>
+        <Nuxt-Link to="/" class="navhome">diet.com</Nuxt-Link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-menu offset-y>
@@ -61,15 +63,15 @@ export default {
     return {
       nav: true,
       sns: [
-        { name: "twitter", icon: "mdi-twitter",link:"https://twitter.com/aiukkksss1" },
-        { name: "instagram", icon: "mdi-instagram",link:"https://www.instagram.com/andyyyy_64/" },
-        { name: "github", icon: "mdi-github",link:"https://github.com/Andyyyy64" },
+        { name: "twitter", icon: "mdi-twitter", link: "https://twitter.com/aiukkksss1" },
+        { name: "instagram", icon: "mdi-instagram", link: "https://www.instagram.com/andyyyy_64/" },
+        { name: "github", icon: "mdi-github", link: "https://github.com/Andyyyy64" },
         { name: "discord", icon: "mdi-discord" }
       ],
       menulists: [
-        { name: "Calculate", icon: "mdi-diamond", lists: [{name:"BMI",link:"/calculator/bmi"}, {name:"TDEE",link:"/calculator/tdee"},{name:"Macro",link:"/calculator/macro"}, {name:"Ideal Weight",link:"/calculator/ideal"}] },
-        { name: "weight Record", icon: "mdi-diamond",link:"/weightrecord" },
-        { name: "What you ate", icon: "mdi-diamond",link:"/whatuate" },
+        { name: "Calculate", icon: "mdi-diamond", lists: [{ name: "BMI", link: "/calculator/bmi" }, { name: "TDEE", link: "/calculator/tdee" }, { name: "Macro", link: "/calculator/macro" }] },
+        { name: "weight Record", icon: "mdi-diamond", link: "/weightrecord" },
+        { name: "What you ate", icon: "mdi-diamond", link: "/whatuate" },
       ]
     }
   }
@@ -77,7 +79,7 @@ export default {
 </script>
 
 <style>
-.navhome{
+.navhome {
   text-decoration: none;
 }
 </style>

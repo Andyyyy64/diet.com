@@ -21,7 +21,7 @@
                 <v-text-field v-model.number="theheight" label="height"></v-text-field>
                 <v-text-field v-model.number="theweight" label="weight"></v-text-field>
                 <CalcBtn2></CalcBtn2>
-                <h1>{{ $store.state.tdee }}kcal</h1>
+                <h1 v-if="$store.state.kcalFlg">{{ $store.state.tdee }}kcal</h1>
             </v-col>
         </v-row>
         <v-footer color="black"></v-footer>

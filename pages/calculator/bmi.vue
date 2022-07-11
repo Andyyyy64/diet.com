@@ -15,14 +15,14 @@
             <v-col>
                 <input>
                 <v-text-field v-model.number="theage" label="Age" hide-details="auto" class="age"></v-text-field>
-                <v-radio-group v-model="gender" row>gender
+                <v-radio-group v-model="thegender" row>gender
                     <v-radio label="male" value="male"></v-radio>
                     <v-radio label="female" value="female"></v-radio>
                 </v-radio-group>
                 <v-text-field v-model.number="theheight" label="height"></v-text-field>
                 <v-text-field v-model.number="theweight" label="weight"></v-text-field>
                 <CalcBtn></CalcBtn>
-                <h1>{{$store.state.bmi}}</h1>
+                <h1>{{ $store.state.bmi }}</h1>
             </v-col>
         </v-row>
         <v-footer color="black"></v-footer>
@@ -32,9 +32,17 @@
 <script>
 export default {
     computed: {
-        theheight: { // v-modelはsetとgetを要求するのでどちらも書いてあげる
-            get() { 
-                return this.$store.state.height 
+        theage: {
+            get() {
+                return this.$store.state.age // v-modelはsetとgetを要求するのでどちらも書いてあげる
+            },
+            set(value) {
+                this.$store.commit("unkounko", value)
+            }
+        },
+        theheight: {
+            get() {
+                return this.$store.state.height
             },
             set(value) {
                 this.$store.commit("unkounko2", value)
@@ -48,6 +56,14 @@ export default {
                 this.$store.commit("unkounko3", value)
             }
         },
+        thegender: {
+            get() {
+                return this.$store.state.gender
+            },
+            set(value) {
+                this.$store.commit("unkounko4", value)
+            }
+        }
 
     },
 }
